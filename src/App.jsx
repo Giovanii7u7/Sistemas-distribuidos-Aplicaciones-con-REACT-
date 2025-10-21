@@ -2,7 +2,7 @@ import Header from './components/Header'
 import Content from './components/Content'
 import Total from './components/Total'
 //componente para calcular el total de ejercicios
-
+//este es un ejemplo de función auxiliar
 const calculateTotal = (ex1, ex2, ex3) => {
   return ex1 + ex2 + ex3
 }
