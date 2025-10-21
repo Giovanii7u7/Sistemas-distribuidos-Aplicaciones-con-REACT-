@@ -2,7 +2,7 @@ import Header from './components/Header'
 import Content from './components/Content'
 import Total from './components/Total'
 
-// ✅ MANTUVIMOS tu función de suma
+// ✅ MANTENEMOS tu función de suma
 const calculateTotal = (ex1, ex2, ex3) => {
   return ex1 + ex2 + ex3
 }
@@ -10,37 +10,33 @@ const calculateTotal = (ex1, ex2, ex3) => {
 const App = () => {
   const course = 'Half Stack application development'
   
-  // CAMBIO: Convertir a objetos
-  const part1 = {
-    name: 'Fundamentals of React',
-    exercises: 10
-  }
-  
-  const part2 = {
-    name: 'Using props to pass data',
-    exercises: 7
-  }
-  
-  const part3 = {
-    name: 'State of a component', 
-    exercises: 14
-  }
+  // NUEVO: Array de objetos
+  const parts = [
+    {
+      name: 'Fundamentals of React',
+      exercises: 10
+    },
+    {
+      name: 'Using props to pass data',
+      exercises: 7
+    },
+    {
+      name: 'State of a component', 
+      exercises: 14
+    }
+  ]
 
-  // ✅ MANTUVIMOS tu función, pero actualizamos los parámetros
+  // ✅ MANTENEMOS tu función, actualizando los parámetros
   const totalExercises = calculateTotal(
-    part1.exercises, 
-    part2.exercises, 
-    part3.exercises
+    parts[0].exercises,    // ← Accedemos por índice del array
+    parts[1].exercises, 
+    parts[2].exercises
   )
 
   return (
     <div>
       <Header course={course} />
-      <Content 
-        part1={part1}  // ← Ahora pasamos objetos
-        part2={part2}
-        part3={part3} 
-      />
+      <Content parts={parts} />  {/* ← Pasamos el array completo */}
       <Total total={totalExercises} />
     </div>
   )
